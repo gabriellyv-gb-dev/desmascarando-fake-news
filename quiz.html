@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz — Desmascarando Fake News</title>
+<meta
+  name="description"
+  content="Teste seus conhecimentos sobre fake news e golpes com este quiz rápido e gratuito. Projeto de Extensão UNISA."
+/>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Desmascarando Fake News" />
+<meta property="og:title" content="Quiz — Desmascarando Fake News" />
+<meta
+  property="og:description"
+  content="Será que você manja mesmo de fake news? Descubra agora fazendo nosso quiz gratuito de 10 perguntas."
+/>
+<meta property="og:image" content="assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://SEU-USUARIO.github.io/desmascarando-fake-news/quiz.html" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a class="pular-links" href="#conteudo-principal">Pular para o conteúdo</a>
+
+<div class="faixa-autoria">
+  <p>
+    Feito por Gabrielly Vitoria Xavier dos Santos e Andreas Yuji Gabriel Cunha Pinheiro
+    – Projeto de Extensão UNISA
+  </p>
+</div>
+
+<header class="cabecalho">
+  <div class="cabecalho__conteudo">
+    <a class="cabecalho__logo" href="index.html">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+      Desmascarando Fake News
+    </a>
+    <nav class="cabecalho__nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="quiz.html" aria-current="page">Fazer o quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+  <div class="quiz-container">
+
+    <!-- TELA 1: nome + consentimento -->
+    <section id="tela-intro" class="tela">
+      <h1 tabindex="-1">Quiz: Desmascarando Fake News</h1>
+      <p>
+        São 10 perguntas rápidas sobre fake news, golpes e como identificá-los. Leva menos
+        de 5 minutos. No final, você vê sua pontuação e as explicações de cada resposta.
+      </p>
+
+      <form id="form-intro" novalidate>
+        <div class="campo">
+          <label for="input-nome">Seu nome ou apelido</label>
+          <input
+            type="text"
+            id="input-nome"
+            name="nome"
+            maxlength="60"
+            required
+            autocomplete="name"
+            placeholder="Ex.: Dona Maria, Apto 12"
+          />
+        </div>
+
+        <div class="caixa-privacidade">
+          <h2>Sobre seus dados (privacidade)</h2>
+          <p>
+            Para este projeto acadêmico de extensão, coletamos o <strong>nome/apelido</strong>
+            que você digitar, suas <strong>respostas</strong> e o seu <strong>resultado</strong>
+            no quiz. Essas informações são usadas apenas para gerar estatísticas de
+            participação do projeto (quantas pessoas participaram e o desempenho geral do
+            grupo) para o relatório acadêmico. Seus dados não são vendidos nem usados para
+            nenhum outro fim.
+          </p>
+        </div>
+
+        <div class="campo-checkbox">
+          <input type="checkbox" id="checkbox-consentimento" name="consentimento" required />
+          <label for="checkbox-consentimento">
+            Li e concordo com o uso dos meus dados como explicado acima, apenas para fins
+            deste projeto acadêmico.
+          </label>
+        </div>
+
+        <p class="mensagem-erro" id="erro-intro" role="alert"></p>
+
+        <button type="submit" class="botao botao--primario botao--grande">
+          Começar o quiz
+        </button>
+      </form>
+    </section>
+
+    <!-- TELA 2: perguntas -->
+    <section id="tela-pergunta" class="tela" hidden>
+      <h2 tabindex="-1" class="utilitario-visualmente-oculto">Pergunta do quiz</h2>
+
+      <div class="barra-progresso">
+        <span class="barra-progresso__texto" id="texto-progresso">Pergunta 1 de 10</span>
+        <div
+          class="barra-progresso__trilha"
+          id="barra-progresso-trilha"
+          role="progressbar"
+          aria-valuemin="1"
+          aria-valuemax="10"
+          aria-valuenow="1"
+          aria-label="Progresso do quiz"
+        >
+          <div class="barra-progresso__preenchimento" id="barra-progresso-preenchimento"></div>
+        </div>
+      </div>
+
+      <p id="pergunta-enunciado" class="pergunta-enunciado" style="font-size:1.2rem; font-weight:700;"></p>
+
+      <ul class="lista-opcoes" id="lista-opcoes" role="radiogroup" aria-label="Alternativas"></ul>
+
+      <button type="button" class="botao botao--primario botao--grande" id="btn-proxima" disabled>
+        Próxima pergunta
+      </button>
+    </section>
+
+    <!-- TELA 3: resultado -->
+    <section id="tela-resultado" class="tela" hidden>
+      <h2 tabindex="-1">Seu resultado</h2>
+
+      <div class="resultado-nota">
+        <span class="resultado-nota__numero" id="nota-final">0 de 10</span>
+        <p id="resultado-mensagem"></p>
+      </div>
+
+      <p class="aviso-rede" id="aviso-salvamento" hidden></p>
+      <p class="bloco-sucesso" id="bloco-acertou-tudo" hidden>
+        Uau, você acertou todas as perguntas! Parabéns, você realmente manja de fake news.
+      </p>
+
+      <div id="secao-erros">
+        <h3>Perguntas para revisar</h3>
+        <ul class="lista-erros" id="lista-erros"></ul>
+      </div>
+
+      <p class="mensagem-erro" id="aviso-compartilhar" role="status" hidden></p>
+
+      <div class="botoes-linha">
+        <button type="button" class="botao botao--secundario" id="btn-refazer">
+          Refazer quiz
+        </button>
+        <a class="botao botao--secundario" href="index.html">Voltar para o conteúdo</a>
+        <button type="button" class="botao botao--primario" id="btn-compartilhar">
+          Compartilhar com os vizinhos
+        </button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="rodape__conteudo">
+    <p><strong>Gabrielly Vitoria Xavier dos Santos</strong> e <strong>Andreas Yuji Gabriel Cunha Pinheiro</strong></p>
+    <p>Projeto de Extensão UNISA — Tema: Ética na comunicação e responsabilidade social na era da informação</p>
+    <p>&copy; <span id="ano-atual">2026</span> Desmascarando Fake News</p>
+  </div>
+</footer>
+
+<script type="module" src="js/quiz.js"></script>
+</body>
+</html>

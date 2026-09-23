@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Desmascarando Fake News — Projeto de Extensão UNISA</title>
+<meta
+  name="description"
+  content="Site educativo sobre fake news e desinformação, com quiz interativo. Projeto de Extensão UNISA — Ética na comunicação e responsabilidade social na era da informação."
+/>
+
+<!-- Open Graph / redes sociais (WhatsApp, Facebook etc.) -->
+<!-- IMPORTANTE: depois de publicar no GitHub Pages, troque a URL abaixo pela URL final (veja README.md) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Desmascarando Fake News" />
+<meta property="og:title" content="Desmascarando Fake News — Projeto de Extensão UNISA" />
+<meta
+  property="og:description"
+  content="Será que você manja mesmo de fake news? Aprenda a identificar notícias falsas e golpes, e teste seus conhecimentos no nosso quiz gratuito."
+/>
+<meta property="og:image" content="assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://SEU-USUARIO.github.io/desmascarando-fake-news/" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a class="pular-links" href="#conteudo-principal">Pular para o conteúdo</a>
+
+<div class="faixa-autoria">
+  <p>
+    Feito por Gabrielly Vitoria Xavier dos Santos e Andreas Yuji Gabriel Cunha Pinheiro
+    – Projeto de Extensão UNISA
+  </p>
+</div>
+
+<header class="cabecalho">
+  <div class="cabecalho__conteudo">
+    <a class="cabecalho__logo" href="index.html">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+      Desmascarando Fake News
+    </a>
+    <nav class="cabecalho__nav" aria-label="Navegação principal">
+      <a href="index.html" aria-current="page">Início</a>
+      <a href="quiz.html">Fazer o quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+  <!-- HERO com CTA logo no início -->
+  <section class="hero">
+    <div class="hero__conteudo">
+      <span class="hero__selo">Projeto de Extensão UNISA</span>
+      <h1>Será que você manja mesmo de fake news?</h1>
+      <p class="hero__chamada">
+        Descubra agora fazendo nosso quiz. É rápido, gratuito e vale para toda a família —
+        do jovem ao mais experiente.
+      </p>
+      <a class="botao botao--primario botao--grande" href="quiz.html">
+        Fazer o quiz agora
+      </a>
+    </div>
+  </section>
+
+  <!-- O QUE SÃO FAKE NEWS -->
+  <section class="secao" id="o-que-sao" aria-labelledby="titulo-o-que-sao">
+    <div class="secao__conteudo">
+      <h2 id="titulo-o-que-sao">O que são fake news e desinformação?</h2>
+      <p>
+        <strong>Fake news</strong> é o nome dado a notícias falsas espalhadas, na maioria das
+        vezes, de propósito — para enganar, causar confusão ou até prejudicar alguém.
+        Mas nem toda informação errada é igual. Vale a pena conhecer três tipos:
+      </p>
+      <ul>
+        <li>
+          <strong>Informação falsa (desinformação):</strong> conteúdo inventado do zero, que
+          o autor sabe que é mentira e espalha mesmo assim, geralmente para enganar de propósito.
+        </li>
+        <li>
+          <strong>Informação enganosa (misinformação):</strong> conteúdo distorcido, exagerado
+          ou fora de ordem, que muitas vezes é compartilhado por quem acredita que é verdade,
+          sem intenção de prejudicar ninguém.
+        </li>
+        <li>
+          <strong>Informação fora de contexto:</strong> um fato, foto ou vídeo até verdadeiro,
+          mas apresentado com uma data, local ou situação diferente da real — o que muda
+          completamente o sentido da informação.
+        </li>
+      </ul>
+      <p>
+        Entender essa diferença ajuda a reagir melhor: nem toda mensagem errada foi feita
+        para enganar, mas todas merecem ser checadas antes de repassar adiante.
+      </p>
+    </div>
+  </section>
+
+  <!-- POR QUE SE ESPALHAM -->
+  <section class="secao secao--alternada" id="por-que-se-espalham" aria-labelledby="titulo-espalham">
+    <div class="secao__conteudo">
+      <h2 id="titulo-espalham">Por que as fake news se espalham tão rápido?</h2>
+      <p>
+        Notícias falsas costumam apelar para emoções fortes — medo, raiva, indignação ou
+        surpresa. Esse apelo emocional faz com que as pessoas reajam e compartilhem na hora,
+        sem parar para checar se é verdade.
+      </p>
+      <p>
+        Um estudo publicado na revista científica <em>Science</em>, conduzido pelos
+        pesquisadores Soroush Vosoughi, Deb Roy e Sinan Aral (2018), analisou milhares de
+        boatos espalhados no Twitter e descobriu que notícias falsas se espalham mais rápido,
+        mais longe e para mais pessoas do que notícias verdadeiras — justamente por causa
+        desse apelo à novidade e à emoção (VOSOUGHI; ROY; ARAL, 2018).
+      </p>
+      <p>
+        Ou seja: a velocidade com que uma notícia se espalha não é prova de que ela é
+        verdadeira. Muitas vezes, é o contrário.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMO IDENTIFICAR: CHECKLIST -->
+  <section class="secao" id="como-identificar" aria-labelledby="titulo-checklist">
+    <div class="secao__conteudo">
+      <h2 id="titulo-checklist">Como identificar: checklist rápido</h2>
+      <p>Fique atento a estes sinais. Quanto mais deles aparecerem, maior o motivo para desconfiar:</p>
+      <div class="grade-cartoes">
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>Título alarmista</h3>
+          <p>Frases em caixa alta, muita exclamação ou promessas exageradas ("você não vai acreditar!").</p>
+        </div>
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>Sem fonte</h3>
+          <p>Não diz de onde veio a informação, ou cita uma "fonte" vaga como "estudo revela".</p>
+        </div>
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>Data antiga ou ausente</h3>
+          <p>Notícia velha reaparecendo como se fosse atual, sem data visível.</p>
+        </div>
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>"Compartilhe antes que apaguem"</h3>
+          <p>Pedidos de urgência para espalhar rápido são uma tática clássica de manipulação.</p>
+        </div>
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>Erros de português</h3>
+          <p>Textos com muitos erros de digitação, gramática ou tradução malfeita.</p>
+        </div>
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>Imagens fora de contexto</h3>
+          <p>Fotos ou vídeos reais, mas usados para ilustrar um fato diferente do original.</p>
+        </div>
+        <div class="cartao cartao--alerta">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 9v5" /><path d="M12 17h.01" /></svg>
+          </div>
+          <h3>Áudios anônimos</h3>
+          <p>Áudios de WhatsApp de "um amigo que trabalha lá" ou "uma médica que não posso identificar".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLPES NO WHATSAPP E PIX -->
+  <section class="secao secao--alternada" id="golpes" aria-labelledby="titulo-golpes">
+    <div class="secao__conteudo">
+      <h2 id="titulo-golpes">Golpes comuns no WhatsApp e no Pix</h2>
+      <p>Estes golpes são muito comuns e costumam usar urgência e emoção para funcionar:</p>
+      <div class="grade-cartoes">
+        <div class="cartao">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+          </div>
+          <h3>Falso parente pedindo dinheiro</h3>
+          <p>
+            Um número novo se passa por filho, neto ou parente, diz que trocou de celular e
+            pede um Pix urgente. Sempre confirme ligando para o número antigo, já salvo na
+            sua agenda.
+          </p>
+        </div>
+        <div class="cartao">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          </div>
+          <h3>Links de promoção</h3>
+          <p>
+            Mensagens de prêmios, vale-compras ou sorteios "imperdíveis" que pedem para
+            clicar em um link e preencher dados pessoais ou bancários. Desconfie sempre.
+          </p>
+        </div>
+        <div class="cartao">
+          <div class="cartao__icone">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+          </div>
+          <h3>Falsa central do banco</h3>
+          <p>
+            Ligações, SMS ou mensagens dizendo ser do seu banco, avisando de "compra suspeita"
+            e pedindo para clicar em um link ou informar senha. Bancos nunca pedem sua senha
+            assim — ligue direto para o número oficial do cartão.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTES DE COMPARTILHAR: 5 PASSOS -->
+  <section class="secao" id="antes-de-compartilhar" aria-labelledby="titulo-passos">
+    <div class="secao__conteudo">
+      <h2 id="titulo-passos">Antes de compartilhar: 5 passos</h2>
+      <ol class="lista-passos">
+        <li>
+          <div>
+            <strong>Respire e não compartilhe na hora.</strong>
+            Se a mensagem te deixou com raiva, medo ou muita empolgação, esse é o momento de
+            desconfiar, não de repassar.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Verifique a fonte.</strong>
+            Quem escreveu isso? É um veículo de notícia conhecido ou uma mensagem sem
+            assinatura?
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Procure em sites de checagem de fatos.</strong>
+            Pesquise o assunto em agências como as listadas abaixo, na seção "Onde checar".
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Desconfie de pedidos de dados ou dinheiro.</strong>
+            Nenhuma promoção, banco ou parente de verdade vai pedir seus dados bancários ou
+            um Pix urgente por mensagem.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Se tiver dúvida, não compartilhe.</strong>
+            Na dúvida, o mais seguro é não repassar — ou avisar quem te enviou que a
+            informação pode ser falsa.
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ONDE CHECAR -->
+  <section class="secao secao--alternada" id="onde-checar" aria-labelledby="titulo-onde-checar">
+    <div class="secao__conteudo">
+      <h2 id="titulo-onde-checar">Onde checar se é verdade</h2>
+      <p>
+        Estas agências e serviços se dedicam a verificar notícias e boatos. Em caso de
+        dúvida, pesquise o assunto em um deles antes de compartilhar:
+      </p>
+      <div class="grade-cartoes">
+        <a class="cartao-link" href="https://www.aosfatos.org/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          Aos Fatos
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <!-- VERIFICAR: confirmar domínio atual da Agência Lupa (passou a operar dentro do UOL) -->
+        <a class="cartao-link" href="https://lupa.uol.com.br/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          Agência Lupa
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <a class="cartao-link" href="https://g1.globo.com/fato-ou-fake/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          Fato ou Fake (g1)
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <!-- VERIFICAR: confirmar se o domínio do Projeto Comprova segue ativo/atualizado -->
+        <a class="cartao-link" href="https://projetocomprova.com.br/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          Projeto Comprova
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <!-- VERIFICAR: confirmar URL exata da editoria "Estadão Verifica" -->
+        <a class="cartao-link" href="https://www.estadao.com.br/estadao-verifica/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          Estadão Verifica
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <a class="cartao-link" href="https://www.boatos.org/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          Boatos.org
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <a class="cartao-link" href="https://www.e-farsas.com/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          E-farsas
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <!-- VERIFICAR: confirmar URL exata da seção "Fato ou Boato" do TSE (usando a página inicial por segurança) -->
+        <a class="cartao-link" href="https://www.tse.jus.br/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+          TSE — Fato ou Boato
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+        <a class="cartao-link" href="https://cartilha.cert.br/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+          Cartilha de Segurança (CERT.br)
+          <span class="cartao-link__externo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉTICA E RESPONSABILIDADE -->
+  <section class="secao" id="etica" aria-labelledby="titulo-etica">
+    <div class="secao__conteudo">
+      <h2 id="titulo-etica">Ética, responsabilidade e privacidade</h2>
+      <p>
+        Compartilhar uma notícia falsa não é um ato neutro. Uma fake news pode causar pânico
+        coletivo, levar pessoas a golpes financeiros, incentivar decisões erradas de saúde e
+        manchar injustamente a reputação de pessoas, empresas e instituições. Numa
+        comunidade — como um condomínio de vizinhos — isso pode significar brigas
+        desnecessárias, desconfiança entre moradores e até prejuízo financeiro real, como nos
+        golpes de Pix. Checar antes de compartilhar é, portanto, também um ato de cuidado
+        com o próximo.
+      </p>
+      <p>
+        Esse cuidado se estende aos dados pessoais. A <strong>Lei Geral de Proteção de Dados
+        Pessoais (LGPD — Lei nº 13.709/2018)</strong> estabelece regras sobre como informações
+        pessoais (como nome, telefone, CPF ou dados bancários) podem ser coletadas e usadas
+        no Brasil. Golpes que pedem esses dados por mensagem — como os descritos na seção
+        "Golpes comuns" — não só enganam a vítima, como também violam esse direito à
+        privacidade. Da mesma forma, qualquer site ou projeto que colete dados de
+        participantes (como o nosso quiz) deve ser transparente sobre o que coleta e para
+        que usa — é exatamente isso que fazemos na página do quiz, antes de você começar a
+        responder.
+      </p>
+    </div>
+  </section>
+
+  <!-- REFERÊNCIAS -->
+  <section class="secao secao--alternada" id="referencias" aria-labelledby="titulo-referencias">
+    <div class="secao__conteudo">
+      <h2 id="titulo-referencias">Referências</h2>
+      <ol class="lista-referencias">
+        <li>
+          AOS FATOS. <em>Aos Fatos</em>. Disponível em:
+          <a href="https://www.aosfatos.org/" target="_blank" rel="noopener noreferrer">https://www.aosfatos.org/</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+        <li>
+          BOATOS.ORG. <em>Boatos.org</em>. Disponível em:
+          <a href="https://www.boatos.org/" target="_blank" rel="noopener noreferrer">https://www.boatos.org/</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+        <li>
+          BRASIL. <em>Lei nº 13.709, de 14 de agosto de 2018</em>: Lei Geral de Proteção de
+          Dados Pessoais (LGPD). Brasília, DF: Presidência da República, 2018. Disponível em:
+          <a href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener noreferrer">http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+        <li>
+          E-FARSAS. <em>E-farsas</em>. Disponível em:
+          <a href="https://www.e-farsas.com/" target="_blank" rel="noopener noreferrer">https://www.e-farsas.com/</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+        <li>
+          G1. <em>Fato ou Fake</em>. Disponível em:
+          <a href="https://g1.globo.com/fato-ou-fake/" target="_blank" rel="noopener noreferrer">https://g1.globo.com/fato-ou-fake/</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+        <li>
+          LUPA. <em>Agência Lupa</em>. Disponível em:
+          <a href="https://lupa.uol.com.br/" target="_blank" rel="noopener noreferrer">https://lupa.uol.com.br/</a>.
+          Acesso em: 23 set. 2026. <!-- VERIFICAR -->
+        </li>
+        <li>
+          NIC.br; CERT.br. <em>Cartilha de Segurança para Internet</em>. Disponível em:
+          <a href="https://cartilha.cert.br/" target="_blank" rel="noopener noreferrer">https://cartilha.cert.br/</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+        <li>
+          PROJETO COMPROVA. <em>Comprova</em>. Disponível em:
+          <a href="https://projetocomprova.com.br/" target="_blank" rel="noopener noreferrer">https://projetocomprova.com.br/</a>.
+          Acesso em: 23 set. 2026. <!-- VERIFICAR -->
+        </li>
+        <li>
+          ESTADÃO. <em>Estadão Verifica</em>. Disponível em:
+          <a href="https://www.estadao.com.br/estadao-verifica/" target="_blank" rel="noopener noreferrer">https://www.estadao.com.br/estadao-verifica/</a>.
+          Acesso em: 23 set. 2026. <!-- VERIFICAR -->
+        </li>
+        <li>
+          TRIBUNAL SUPERIOR ELEITORAL (TSE). <em>Fato ou Boato</em>. Disponível em:
+          <a href="https://www.tse.jus.br/" target="_blank" rel="noopener noreferrer">https://www.tse.jus.br/</a>.
+          Acesso em: 23 set. 2026. <!-- VERIFICAR -->
+        </li>
+        <li>
+          VOSOUGHI, Soroush; ROY, Deb; ARAL, Sinan. The spread of true and false news online.
+          <em>Science</em>, v. 359, n. 6380, p. 1146-1151, 2018. Disponível em:
+          <a href="https://www.science.org/doi/10.1126/science.aap9559" target="_blank" rel="noopener noreferrer">https://www.science.org/doi/10.1126/science.aap9559</a>.
+          Acesso em: 23 set. 2026.
+        </li>
+      </ol>
+      <p>
+        <small>
+          A lista completa de URLs usadas neste site, com observações sobre quais precisam
+          de conferência manual, está no arquivo REFERENCIAS.md do repositório do projeto.
+        </small>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="secao" style="text-align: center">
+    <div class="secao__conteudo">
+      <h2>Pronto para testar o que aprendeu?</h2>
+      <p>Faça o quiz agora e ajude a espalhar informação de qualidade no seu condomínio.</p>
+      <a class="botao botao--primario botao--grande" href="quiz.html">Fazer o quiz agora</a>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="rodape__conteudo">
+    <p><strong>Gabrielly Vitoria Xavier dos Santos</strong> e <strong>Andreas Yuji Gabriel Cunha Pinheiro</strong></p>
+    <p>Projeto de Extensão UNISA — Tema: Ética na comunicação e responsabilidade social na era da informação</p>
+    <p>&copy; <span id="ano-atual">2026</span> Desmascarando Fake News</p>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

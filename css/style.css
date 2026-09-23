@@ -1,0 +1,798 @@
+/* css/style.css
+   Estilo único para todas as páginas do site (index.html, quiz.html, admin.html).
+   Mobile-first, alto contraste, fonte grande — pensado para um público de
+   várias idades (incluindo idosos) usando principalmente o celular.
+   Sem fontes externas: usa a fonte do sistema, o que deixa o site mais
+   rápido e não depende de conexão para carregar texto. */
+
+/* -------------------------------------------------------------------------
+   1. Tokens (cores, espaçamento, tipografia)
+   ------------------------------------------------------------------------- */
+:root {
+  /* Cores: azul confiável + verde de "ok" + vermelho de alerta.
+     Todas testadas para contraste AA sobre fundo branco/escuro conforme uso. */
+  --cor-primaria: #0b4f6c;
+  --cor-primaria-escura: #073349;
+  --cor-secundaria: #1b7a43;
+  --cor-secundaria-escura: #145c33;
+  --cor-alerta: #a3260f;
+  --cor-alerta-fundo: #fdecea;
+  --cor-aviso-fundo: #fff6e0;
+  --cor-aviso-borda: #8a6100;
+
+  --cor-fundo: #ffffff;
+  --cor-fundo-alternado: #f4f7f9;
+  --cor-texto: #1a1a1a;
+  --cor-texto-suave: #3f3f3f;
+  --cor-borda: #c9d3d8;
+  --cor-foco: #ffbf47;
+
+  --fonte-base:
+    system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --raio: 12px;
+  --raio-grande: 18px;
+  --sombra: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --largura-conteudo: 780px;
+}
+
+/* -------------------------------------------------------------------------
+   2. Reset básico
+   ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Garante que o atributo HTML "hidden" sempre esconda o elemento, mesmo em
+   itens cuja classe define "display" explicitamente (ex.: display: grid/flex
+   em botões e grades) — sem isso, a regra de display da classe "vence" a
+   regra padrão do navegador para [hidden] e o elemento ficaria visível. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-base);
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.6;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  color: var(--cor-primaria-escura);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.4rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--cor-primaria);
+}
+
+a:hover {
+  color: var(--cor-primaria-escura);
+}
+
+ul,
+ol {
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Foco visível e consistente em qualquer elemento navegável por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+}
+
+/* Link para pular a navegação (acessibilidade de teclado) */
+.pular-links {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--cor-primaria-escura);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+  border-radius: 0 0 var(--raio) 0;
+}
+
+.pular-links:focus {
+  left: 0;
+}
+
+/* -------------------------------------------------------------------------
+   3. Faixa de autoria (topo) e cabeçalho
+   ------------------------------------------------------------------------- */
+.faixa-autoria {
+  background: var(--cor-primaria-escura);
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.faixa-autoria p {
+  margin: 0;
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+}
+
+.cabecalho {
+  background: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 0.9rem 1rem;
+}
+
+.cabecalho__conteudo {
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1rem;
+}
+
+.cabecalho__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cabecalho__logo svg {
+  flex-shrink: 0;
+  color: var(--cor-primaria);
+}
+
+.cabecalho__nav {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.cabecalho__nav a {
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--raio);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--cor-primaria-escura);
+  white-space: nowrap;
+}
+
+@media (min-width: 480px) {
+  .cabecalho__logo {
+    font-size: 1.1rem;
+  }
+  .cabecalho__nav a {
+    font-size: 1rem;
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+.cabecalho__nav a:hover,
+.cabecalho__nav a[aria-current="page"] {
+  background: var(--cor-fundo-alternado);
+}
+
+/* -------------------------------------------------------------------------
+   4. Layout geral / seções
+   ------------------------------------------------------------------------- */
+main {
+  display: block;
+}
+
+.secao {
+  padding: 2.5rem 1.25rem;
+}
+
+.secao--alternada {
+  background: var(--cor-fundo-alternado);
+}
+
+.secao__conteudo {
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------
+   5. Hero (topo da index)
+   ------------------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(180deg, #eaf3f7 0%, #ffffff 100%);
+  padding: 2.5rem 1.25rem 3rem;
+  text-align: center;
+}
+
+.hero__conteudo {
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+}
+
+.hero__selo {
+  display: inline-block;
+  background: var(--cor-secundaria);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.hero p.hero__chamada {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin-bottom: 1.75rem;
+}
+
+/* -------------------------------------------------------------------------
+   6. Botões
+   ------------------------------------------------------------------------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--raio);
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botao--primario {
+  background: var(--cor-secundaria);
+  color: #fff;
+}
+
+.botao--primario:hover:not(:disabled) {
+  background: var(--cor-secundaria-escura);
+  color: #fff;
+}
+
+.botao--secundario {
+  background: #fff;
+  color: var(--cor-primaria-escura);
+  border-color: var(--cor-primaria);
+}
+
+.botao--secundario:hover:not(:disabled) {
+  background: var(--cor-fundo-alternado);
+}
+
+.botao--grande {
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 1.1rem 1.6rem;
+}
+
+.botao:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.botoes-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.botoes-linha .botao {
+  flex: 1 1 220px;
+}
+
+/* -------------------------------------------------------------------------
+   7. Checklist visual (cartões com ícone)
+   ------------------------------------------------------------------------- */
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .grade-cartoes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cartao {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 1.25rem;
+  box-shadow: var(--sombra);
+}
+
+.cartao__icone {
+  color: var(--cor-primaria);
+  margin-bottom: 0.6rem;
+}
+
+.cartao h3 {
+  margin: 0 0 0.4rem;
+}
+
+.cartao p {
+  margin: 0;
+  color: var(--cor-texto-suave);
+}
+
+.cartao--alerta {
+  border-color: #e3b3ab;
+  background: var(--cor-alerta-fundo);
+}
+
+.cartao--alerta .cartao__icone {
+  color: var(--cor-alerta);
+}
+
+/* Cards "onde checar" (links) */
+.cartao-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+.cartao-link:hover {
+  border-color: var(--cor-primaria);
+  background: var(--cor-fundo-alternado);
+}
+
+.cartao-link svg {
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.cartao-link__externo {
+  margin-left: auto;
+  color: var(--cor-texto-suave);
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------------------
+   8. Passo a passo numerado
+   ------------------------------------------------------------------------- */
+.lista-passos {
+  list-style: none;
+  padding: 0;
+  counter-reset: passo;
+  margin-top: 1.5rem;
+}
+
+.lista-passos li {
+  counter-increment: passo;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.lista-passos li::before {
+  content: counter(passo);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-weight: 700;
+}
+
+.lista-passos strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+/* -------------------------------------------------------------------------
+   9. Referências (ABNT)
+   ------------------------------------------------------------------------- */
+.lista-referencias {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-referencias li {
+  padding-left: 0;
+  text-indent: -1.4em;
+  margin-left: 1.4em;
+  margin-bottom: 1rem;
+  color: var(--cor-texto-suave);
+}
+
+/* -------------------------------------------------------------------------
+   10. Rodapé
+   ------------------------------------------------------------------------- */
+.rodape {
+  background: var(--cor-primaria-escura);
+  color: #eaf1f4;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.rodape__conteudo {
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+}
+
+.rodape a {
+  color: #cfe6f0;
+}
+
+.rodape p {
+  margin: 0 0 0.5rem;
+}
+
+/* -------------------------------------------------------------------------
+   11. Quiz — telas
+   ------------------------------------------------------------------------- */
+.quiz-container {
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.tela {
+  animation: entrada 0.2s ease-out;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.caixa-privacidade {
+  background: var(--cor-fundo-alternado);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1rem 1.1rem;
+  margin: 1.25rem 0;
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+}
+
+.caixa-privacidade h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  color: var(--cor-texto);
+}
+
+.campo {
+  margin-bottom: 1.25rem;
+}
+
+.campo label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.campo input[type="text"] {
+  width: 100%;
+  font: inherit;
+  font-size: 1.1rem;
+  padding: 0.8rem 0.9rem;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.campo input[type="text"]:focus-visible {
+  border-color: var(--cor-primaria);
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 1.25rem;
+}
+
+.campo-checkbox input {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.campo-checkbox label {
+  font-size: 1rem;
+}
+
+.mensagem-erro {
+  color: var(--cor-alerta);
+  font-weight: 700;
+  min-height: 1.5em;
+  margin-bottom: 1rem;
+}
+
+.mensagem-erro:empty {
+  display: none;
+}
+
+/* Progresso */
+.barra-progresso {
+  margin-bottom: 1.75rem;
+}
+
+.barra-progresso__texto {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto-suave);
+}
+
+.barra-progresso__trilha {
+  background: var(--cor-fundo-alternado);
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+}
+
+.barra-progresso__preenchimento {
+  background: var(--cor-secundaria);
+  height: 100%;
+  width: 0%;
+  transition: width 0.25s ease;
+}
+
+/* Opções de resposta */
+.lista-opcoes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.opcao-quiz {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1rem 1.1rem;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--cor-texto);
+  cursor: pointer;
+  min-height: 52px;
+}
+
+.opcao-quiz:hover {
+  border-color: var(--cor-primaria);
+}
+
+.opcao-quiz--selecionada {
+  border-color: var(--cor-primaria);
+  background: #eaf3f7;
+  font-weight: 700;
+  position: relative;
+  padding-left: 2.6rem;
+}
+
+.opcao-quiz--selecionada::before {
+  content: "✓";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cor-primaria);
+  font-weight: 900;
+}
+
+/* Resultado */
+.resultado-nota {
+  text-align: center;
+  background: var(--cor-fundo-alternado);
+  border-radius: var(--raio-grande);
+  padding: 1.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.resultado-nota__numero {
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  font-weight: 800;
+  color: var(--cor-primaria-escura);
+  display: block;
+}
+
+.aviso-rede {
+  background: var(--cor-aviso-fundo);
+  border: 1px solid var(--cor-aviso-borda);
+  color: #5c4400;
+  border-radius: var(--raio);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.bloco-sucesso {
+  background: #e9f6ee;
+  border: 1px solid #9ed3b1;
+  border-radius: var(--raio);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-secundaria-escura);
+}
+
+.lista-erros {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-erro {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-left: 5px solid var(--cor-alerta);
+  border-radius: var(--raio);
+  padding: 1rem 1.1rem;
+}
+
+.item-erro__pergunta {
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.item-erro p {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.item-erro__resposta-dada {
+  color: var(--cor-alerta);
+}
+
+.item-erro__resposta-certa {
+  color: var(--cor-secundaria-escura);
+}
+
+.item-erro__explicacao {
+  color: var(--cor-texto-suave);
+  margin-top: 0.6rem;
+}
+
+/* -------------------------------------------------------------------------
+   12. Admin
+   ------------------------------------------------------------------------- */
+.admin-cartao {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-estatisticas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 560px) {
+  .admin-estatisticas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.admin-estatisticas__item {
+  background: var(--cor-fundo-alternado);
+  border-radius: var(--raio);
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.admin-estatisticas__numero {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cor-primaria-escura);
+}
+
+.admin-estatisticas__rotulo {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+.utilitario-visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
