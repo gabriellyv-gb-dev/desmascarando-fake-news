@@ -14,8 +14,8 @@ export const CONFIG = {
 
   // Preencha depois de criar o projeto em https://supabase.com
   // Veja o passo a passo no README.md ("Como configurar o Supabase").
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://wzfukyigykkgzbghigar.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_gYbGc6TMM2LbFoObQbK7Kw_MIW9FOif",
 
   // Informações gerais do projeto (usadas em meta tags e textos).
   SITE_NAME: "Desmascarando Fake News",
@@ -23,7 +23,7 @@ export const CONFIG = {
     "Site educativo sobre fake news e desinformação, com quiz interativo. Projeto de Extensão UNISA.",
   // Substitua pela URL final do GitHub Pages depois de publicar, por exemplo:
   // "https://SEU-USUARIO.github.io/desmascarando-fake-news/"
-  SITE_URL: "https://SEU-USUARIO.github.io/desmascarando-fake-news/",
+  SITE_URL: "https://gabriellyv-gb-dev.github.io/desmascarando-fake-news/",
 
   AUTORES:
     "Gabrielly Vitoria Xavier dos Santos e Andreas Yuji Gabriel Cunha Pinheiro",

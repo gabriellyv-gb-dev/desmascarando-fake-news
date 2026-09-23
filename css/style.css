@@ -1,5 +1,5 @@
 /* css/style.css
-   Estilo único para todas as páginas do site (index.html, quiz.html, admin.html).
+   Estilo único para todas as páginas do site (index.html, quiz.html, resultados.html).
    Mobile-first, alto contraste, fonte grande — pensado para um público de
    várias idades (incluindo idosos) usando principalmente o celular.
    Sem fontes externas: usa a fonte do sistema, o que deixa o site mais
@@ -795,4 +795,65 @@ main {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+/* Admin: cores dos cartões de aprovados/não aprovados e barra de proporção.
+   Os números e rótulos também dizem "passaram/não passaram", então a cor
+   nunca é a única forma de distinguir os grupos. */
+.admin-estatisticas__item--aprovados {
+  background: #e9f6ee;
+}
+
+.admin-estatisticas__item--aprovados .admin-estatisticas__numero {
+  color: var(--cor-secundaria-escura);
+}
+
+.admin-estatisticas__item--reprovados {
+  background: var(--cor-alerta-fundo);
+}
+
+.admin-estatisticas__item--reprovados .admin-estatisticas__numero {
+  color: var(--cor-alerta);
+}
+
+.admin-barra {
+  display: flex;
+  height: 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--cor-fundo-alternado);
+  border: 1px solid var(--cor-borda);
+}
+
+.admin-barra__aprovados {
+  background: var(--cor-secundaria);
+}
+
+.admin-barra__reprovados {
+  background: var(--cor-alerta);
+}
+
+.admin-barra__legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0.6rem 0 1.25rem;
+  font-size: 1rem;
+}
+
+.admin-legenda-cor {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 3px;
+  margin-right: 0.4rem;
+  vertical-align: -0.1rem;
+}
+
+.admin-legenda-cor--aprovados {
+  background: var(--cor-secundaria);
+}
+
+.admin-legenda-cor--reprovados {
+  background: var(--cor-alerta);
 }

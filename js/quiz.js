@@ -194,7 +194,7 @@ async function finalizarQuiz() {
   notaFinal.textContent = `${score} de ${total}`;
 
   resultadoMensagem.textContent = passou
-    ? `Parabéns, ${estado.nome}! Você mostrou que manja bem de fake news e ajuda a proteger seus vizinhos da desinformação. Continue de olho aberto e compartilhando o que aprendeu!`
+    ? `Parabéns, ${estado.nome}! Você mostrou que você sabe mesmo identificar uma fake news e ajuda a proteger seus vizinhos da desinformação. Continue de olho aberto e compartilhando o que aprendeu!`
     : `Valeu por participar, ${estado.nome}! Ainda dá pra afiar o olhar contra fake news — veja abaixo as explicações de cada questão e, se quiser, releia o conteúdo e tente de novo. O importante é aprender juntos!`;
 
   limparElemento(listaErros);

@@ -135,20 +135,23 @@ export async function getStats() {
   const res = db.exec(`
     SELECT
       COUNT(*) AS participantes,
+      COALESCE(SUM(passed), 0) AS aprovados,
+      COALESCE(SUM(1 - passed), 0) AS reprovados,
       COALESCE(AVG(score), 0) AS media_acertos,
       COALESCE(SUM(passed) * 100.0 / COUNT(*), 0) AS percentual_aprovados
     FROM quiz_results;
   `);
 
   if (!res.length || !res[0].values.length) {
-    return { participantes: 0, mediaAcertos: 0, percentualAprovados: 0 };
+    return { participantes: 0, aprovados: 0, reprovados: 0, mediaAcertos: 0, percentualAprovados: 0 };
   }
 
-  const [participantes, mediaAcertos, percentualAprovados] = res[0].values[0];
-  return { participantes, mediaAcertos, percentualAprovados };
+  const [participantes, aprovados, reprovados, mediaAcertos, percentualAprovados] =
+    res[0].values[0];
+  return { participantes, aprovados, reprovados, mediaAcertos, percentualAprovados };
 }
 
-/** Usado só em admin.html: devolve um Blob do arquivo .sqlite para download. */
+/** Usado só em resultados.html (modo sqlite-local): devolve um Blob do arquivo .sqlite para download. */
 export async function exportarBanco() {
   if (!db) throw new Error("Banco local não inicializado.");
   const bytes = db.export();

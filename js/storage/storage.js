@@ -72,7 +72,7 @@ export async function saveResult(result) {
 }
 
 /**
- * Retorna estatísticas agregadas: { participantes, mediaAcertos, percentualAprovados }
+ * Retorna estatísticas agregadas: { participantes, aprovados, reprovados, mediaAcertos, percentualAprovados }
  */
 export async function getStats() {
   const provider = await getProvider();
@@ -80,7 +80,7 @@ export async function getStats() {
 }
 
 /**
- * Exporta o banco local (só existe no provider sqlite-local; usado no admin.html).
+ * Exporta o banco local (só existe no provider sqlite-local; usado no resultados.html).
  * Retorna null se o provider atual não suportar exportação.
  */
 export async function exportarBancoLocal() {
@@ -91,7 +91,7 @@ export async function exportarBancoLocal() {
   return null;
 }
 
-/** Nome do provider atualmente em uso, para exibir no admin.html */
+/** Nome do provider atualmente em uso, para o resultados.html saber o modo em uso */
 export async function nomeProviderAtivo() {
   const provider = await getProvider();
   return provider.NOME_PROVIDER || "desconhecido";

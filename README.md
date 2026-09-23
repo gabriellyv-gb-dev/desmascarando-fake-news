@@ -19,13 +19,13 @@ abrangência, ODS 4 — Educação de Qualidade e ODS 16 — Paz, Justiça e Ins
 ```
 index.html              Página informativa (conteúdo educativo)
 quiz.html                Quiz de 10 perguntas
-admin.html                Página interna (sem link público) com estatísticas e exportação
+resultados.html           Página pública com quantos fizeram o quiz, passaram e não passaram
 css/style.css              Estilo único do site (mobile-first, acessível)
 js/config.js                 Configurações (Supabase, textos gerais, regras do quiz)
 js/questions.js                Banco de perguntas do quiz
 js/quiz.js                       Lógica do quiz
 js/main.js                         Pequenos scripts da página inicial
-js/admin.js                          Lógica da página admin.html
+js/resultados.js                      Lógica da página resultados.html
 js/storage/storage.js                  Interface de armazenamento (troca de provider)
 js/storage/supabaseStorage.js            Provider: Supabase (padrão)
 js/storage/sqliteLocalStorage.js           Provider: SQLite local no navegador (alternativa)
@@ -86,7 +86,7 @@ Troque `STORAGE_PROVIDER` para `"sqlite-local"` em `js/config.js`. Nesse modo, c
 visitante tem um bancozinho SQLite salvo apenas no próprio navegador (via IndexedDB, usando
 a biblioteca [sql.js](https://sql.js.org/)). É útil como alternativa/backup, mas os dados
 **não ficam centralizados** — cada celular guarda só os próprios resultados. A página
-[`admin.html`](admin.html) tem um botão para exportar esse banco local como um arquivo
+[`resultados.html`](resultados.html) tem um botão para exportar esse banco local como um arquivo
 `.sqlite`. Se o Supabase estiver configurado como padrão mas as credenciais não forem
 preenchidas, o site cai automaticamente para o modo `sqlite-local` (e avisa isso no console
 do navegador).
@@ -120,7 +120,7 @@ conta, que tem acesso total — diferente do site público, que só consegue ins
 -- Total de participantes
 select count(*) from public.quiz_results;
 
--- Média de acertos e % de aprovados (mesma função usada pelo admin.html)
+-- Média de acertos e % de aprovados (mesma função usada pelo resultados.html)
 select * from public.quiz_stats();
 
 -- Participantes por dia (para medir abrangência ao longo da divulgação)
@@ -135,11 +135,11 @@ Essas consultas também estão comentadas no final do arquivo
 
 ### Usando sqlite-local
 
-Abra [`admin.html`](admin.html) no navegador (lembre: essa página não tem link público em
-nenhum lugar do site) e veja as estatísticas agregadas na tela, ou clique em
-**"Exportar banco (.sqlite)"** para baixar o arquivo e abrir em qualquer visualizador de
-SQLite. Como os dados ficam por navegador/dispositivo, essa opção reflete apenas os
-resultados registrados naquele aparelho específico.
+Abra [`resultados.html`](resultados.html) no navegador para ver quantas pessoas fizeram o
+quiz, quantas passaram e quantas não passaram, ou clique em **"Exportar banco (.sqlite)"**
+para baixar o arquivo e abrir em qualquer visualizador de SQLite. Como os dados ficam por
+navegador/dispositivo, essa opção reflete apenas os resultados registrados naquele aparelho
+específico.
 
 ## Acessibilidade e visual
 

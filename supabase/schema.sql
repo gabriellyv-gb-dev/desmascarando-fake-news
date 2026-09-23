@@ -41,14 +41,20 @@ create policy "anon pode inserir resultados"
   with check (true);
 
 -- =========================================================
--- Função de estatísticas agregadas (para o admin.html e o relatório)
+-- Função de estatísticas agregadas (para a página resultados.html e o relatório)
 -- =========================================================
 -- SECURITY DEFINER: roda com os privilégios de quem criou a função,
 -- então consegue ler a tabela mesmo com RLS ativo -- mas só devolve
 -- números agregados, nunca linhas individuais (nome, respostas etc.).
-create or replace function public.quiz_stats()
+-- "drop" antes de criar porque o Postgres não deixa mudar as colunas de retorno
+-- de uma função existente com "create or replace". Rodar este arquivo de novo é seguro.
+drop function if exists public.quiz_stats();
+
+create function public.quiz_stats()
 returns table (
   participantes bigint,
+  aprovados bigint,
+  reprovados bigint,
   media_acertos numeric,
   percentual_aprovados numeric
 )
@@ -58,13 +64,15 @@ set search_path = public
 as $$
   select
     count(*)::bigint as participantes,
+    (count(*) filter (where passed))::bigint as aprovados,
+    (count(*) filter (where not passed))::bigint as reprovados,
     coalesce(round(avg(score)::numeric, 2), 0) as media_acertos,
-    coalesce(round(sum(case when passed then 1 else 0 end)::numeric * 100.0 / nullif(count(*), 0), 1), 0) as percentual_aprovados
+    coalesce(round((count(*) filter (where passed))::numeric * 100.0 / nullif(count(*), 0), 1), 0) as percentual_aprovados
   from public.quiz_results;
 $$;
 
 comment on function public.quiz_stats() is
-  'Retorna apenas agregados (total de participantes, média de acertos, % de aprovados). Não expõe dados individuais.';
+  'Retorna apenas agregados (participantes, aprovados, não aprovados, média de acertos, % de aprovados). Não expõe dados individuais.';
 
 -- Libera a execução da função para o papel anônimo (site público).
 grant execute on function public.quiz_stats() to anon;

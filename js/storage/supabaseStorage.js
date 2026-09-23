@@ -48,11 +48,26 @@ export async function getStats() {
     throw error;
   }
 
-  // quiz_stats() retorna uma linha: { participantes, media_acertos, percentual_aprovados }
-  const linha = Array.isArray(data) ? data[0] : data;
+  // quiz_stats() retorna uma linha:
+  // { participantes, aprovados, reprovados, media_acertos, percentual_aprovados }
+  const linha = (Array.isArray(data) ? data[0] : data) ?? {};
+  const participantes = Number(linha.participantes ?? 0);
+  const percentualAprovados = Number(linha.percentual_aprovados ?? 0);
+
+  // Se a função quiz_stats() do banco ainda for a versão antiga (sem as colunas
+  // aprovados/reprovados), calcula a partir da porcentagem para não quebrar.
+  const aprovados =
+    linha.aprovados != null
+      ? Number(linha.aprovados)
+      : Math.round((participantes * percentualAprovados) / 100);
+  const reprovados =
+    linha.reprovados != null ? Number(linha.reprovados) : participantes - aprovados;
+
   return {
-    participantes: linha?.participantes ?? 0,
-    mediaAcertos: linha?.media_acertos ?? 0,
-    percentualAprovados: linha?.percentual_aprovados ?? 0,
+    participantes,
+    aprovados,
+    reprovados,
+    mediaAcertos: Number(linha.media_acertos ?? 0),
+    percentualAprovados,
   };
 }

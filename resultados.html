@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resultados — Desmascarando Fake News</title>
+<meta
+  name="description"
+  content="Veja quantas pessoas já fizeram o quiz sobre fake news, quantas passaram e quantas não passaram. Projeto de Extensão UNISA."
+/>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Desmascarando Fake News" />
+<meta property="og:title" content="Resultados — Desmascarando Fake News" />
+<meta
+  property="og:description"
+  content="Quantos vizinhos já fizeram o quiz? Veja quantos passaram e como foi o desempenho geral."
+/>
+<meta property="og:image" content="https://gabriellyv-gb-dev.github.io/desmascarando-fake-news/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://gabriellyv-gb-dev.github.io/desmascarando-fake-news/resultados.html" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a class="pular-links" href="#conteudo-principal">Pular para o conteúdo</a>
+
+<div class="faixa-autoria">
+  <p>
+    Feito por Gabrielly Vitoria Xavier dos Santos e Andreas Yuji Gabriel Cunha Pinheiro
+    – Projeto de Extensão UNISA
+  </p>
+</div>
+
+<header class="cabecalho">
+  <div class="cabecalho__conteudo">
+    <a class="cabecalho__logo" href="index.html">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+      Desmascarando Fake News
+    </a>
+    <nav class="cabecalho__nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="quiz.html">Fazer o quiz</a>
+      <a href="resultados.html" aria-current="page">Resultados</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+  <div class="secao">
+    <div class="secao__conteudo">
+      <h1>Resultados do quiz</h1>
+      <p>
+        Veja quantas pessoas já fizeram o quiz e como foi o desempenho geral. Aqui aparecem
+        apenas números totais: nenhum nome nem resposta individual é mostrado.
+      </p>
+
+      <div class="admin-cartao">
+        <p id="admin-status" role="status">Carregando resultados…</p>
+
+        <div id="admin-resultados" hidden>
+          <div class="admin-estatisticas">
+            <div class="admin-estatisticas__item">
+              <span class="admin-estatisticas__numero" id="stat-participantes">–</span>
+              <span class="admin-estatisticas__rotulo">fizeram o quiz</span>
+            </div>
+            <div class="admin-estatisticas__item admin-estatisticas__item--aprovados">
+              <span class="admin-estatisticas__numero" id="stat-aprovados">–</span>
+              <span class="admin-estatisticas__rotulo">passaram (7 ou mais acertos)</span>
+            </div>
+            <div class="admin-estatisticas__item admin-estatisticas__item--reprovados">
+              <span class="admin-estatisticas__numero" id="stat-reprovados">–</span>
+              <span class="admin-estatisticas__rotulo">não passaram (menos de 7)</span>
+            </div>
+          </div>
+
+          <div
+            class="admin-barra"
+            id="admin-barra"
+            role="img"
+            aria-label="Nenhum participante ainda"
+          >
+            <div class="admin-barra__aprovados" id="barra-aprovados"></div>
+            <div class="admin-barra__reprovados" id="barra-reprovados"></div>
+          </div>
+          <p class="admin-barra__legenda">
+            <span><span class="admin-legenda-cor admin-legenda-cor--aprovados" aria-hidden="true"></span>Passaram: <strong id="legenda-aprovados">0%</strong></span>
+            <span><span class="admin-legenda-cor admin-legenda-cor--reprovados" aria-hidden="true"></span>Não passaram: <strong id="legenda-reprovados">0%</strong></span>
+          </p>
+
+          <p>Média de acertos: <strong id="stat-media">–</strong> de 10</p>
+        </div>
+
+        <p class="aviso-rede" id="aviso-local" hidden>
+          Atenção: neste momento os resultados estão sendo guardados apenas neste aparelho,
+          então os números acima não incluem as respostas de outras pessoas.
+        </p>
+
+        <div class="botoes-linha">
+          <button type="button" class="botao botao--secundario" id="btn-atualizar">
+            Atualizar resultados
+          </button>
+          <button type="button" class="botao botao--secundario" id="btn-exportar" hidden>
+            Exportar banco (.sqlite)
+          </button>
+        </div>
+      </div>
+
+      <p style="text-align: center">
+        <a class="botao botao--primario botao--grande" href="quiz.html">Fazer o quiz agora</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="rodape__conteudo">
+    <p><strong>Gabrielly Vitoria Xavier dos Santos</strong> e <strong>Andreas Yuji Gabriel Cunha Pinheiro</strong></p>
+    <p>Projeto de Extensão UNISA — Tema: Ética na comunicação e responsabilidade social na era da informação</p>
+    <p>&copy; <span id="ano-atual">2026</span> Desmascarando Fake News</p>
+  </div>
+</footer>
+
+<script type="module" src="js/resultados.js"></script>
+</body>
+</html>
