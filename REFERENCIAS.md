@@ -36,7 +36,7 @@ ajustado manualmente se necessário.
 |---|---|---|
 | js/storage/supabaseStorage.js | https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1/+esm | Biblioteca cliente do Supabase, versão fixada, via jsDelivr |
 | js/storage/sqliteLocalStorage.js | https://cdn.jsdelivr.net/npm/sql.js@1.14.2/+esm | Biblioteca sql.js (SQLite via WebAssembly), versão fixada, via jsDelivr |
-| index.html / quiz.html (meta og:url) | https://SEU-USUARIO.github.io/desmascarando-fake-news/ | **Placeholder** — trocar pela URL real após publicar no GitHub Pages (ver README.md) |
+| index.html / quiz.html / resultados.html (meta og:url, og:image) | https://gabriellyv-gb-dev.github.io/desmascarando-fake-news/ | URL final do GitHub Pages do projeto |
 
 ## Ação recomendada antes de divulgar
 
@@ -45,5 +45,3 @@ ajustado manualmente se necessário.
 2. Se algum link "VERIFICAR" estiver desatualizado, corrigir o `href` diretamente no
    `index.html` (e remover o comentário `<!-- VERIFICAR -->` correspondente) e atualizar
    este arquivo.
-3. Substituir `https://SEU-USUARIO.github.io/desmascarando-fake-news/` pela URL real do
-   GitHub Pages em `index.html`, `quiz.html` e `js/config.js` (campo `SITE_URL`).
